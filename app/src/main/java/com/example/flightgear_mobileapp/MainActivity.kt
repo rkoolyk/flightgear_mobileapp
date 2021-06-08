@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.SeekBar
 
 class MainActivity : AppCompatActivity() {
+    val vm = AppViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,7 +19,8 @@ class MainActivity : AppCompatActivity() {
     fun updateJoystick() {
         val joystick = findViewById<com.example.flightgear_mobileapp.Joystick>(R.id.joystick)
         joystick.onChange = {aileron : Float, elevator : Float ->
-            println("AILERON: " + aileron + "ELEVATOR" + elevator)
+            vm.VM_setAileron(aileron)
+            vm.VM_setElevator(elevator)
         }
     }
 
@@ -27,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val throttle = findViewById<SeekBar>(R.id.seekBarThrottle)
         throttle.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                println(throttle.progress.toString())
+                vm.VM_setThrottle(throttle.progress.toFloat())
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -46,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         val rudder = findViewById<SeekBar>(R.id.seekBarRudder)
         rudder.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                println(rudder.progress.toString())
+                vm.VM_setRudder(rudder.progress.toFloat())
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -63,6 +65,6 @@ class MainActivity : AppCompatActivity() {
     fun connect(view: View) {
         val ip = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.ip_address).text.toString()
         val port = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.port).text.toString()
-        println("IP ADDRESS IS: " + ip + "PORT IS: " + port)
+        vm.VM_connect(ip, port)
     }
 }
