@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+
+        <LinearLayout
+            android:layout_width="974dp"
+            android:layout_height="1370dp"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="1dp"
+            tools:ignore="MissingClass,MissingConstraints">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="981dp"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="76dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/ip_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_an_ip_address" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="981dp"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="190dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/port"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_a_flightgear_port_number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:onClick="connect"
+                android:layout_width="211dp"
+                android:layout_height="81dp"
+                android:text="@string/connect"
+                tools:ignore="DuplicateIds,MissingConstraints,OnClick"
+                tools:layout_editor_absoluteX="75dp"
+                tools:layout_editor_absoluteY="311dp" />
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="301dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="50dp"
+                    android:layout_height="0dp" />
+
+                <com.example.flightgear_mobileapp.Joystick
+                    android:id="@+id/joystick"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    />
+
+                <SeekBar
+                    android:id="@+id/seekBarThrottle"
+                    android:layout_width="260dp"
+                    android:layout_height="300dp"
+                    android:layout_marginEnd="164dp"
+                    android:layout_marginRight="164dp"
+                    android:layout_marginBottom="152dp"
+                    android:progress="0"
+                    android:rotation="270"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/joystick" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="301dp"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+                <Space
+                    android:layout_width="50dp"
+                    android:layout_height="0dp" />
+                <SeekBar
+                    android:id="@+id/seekBarRudder"
+                    android:layout_width="300dp"
+                    android:layout_height="57dp"
+                    tools:ignore="DuplicateIds,MissingConstraints"
+                    tools:layout_editor_absoluteX="108dp"
+                    tools:layout_editor_absoluteY="1035dp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
