@@ -53,11 +53,10 @@
 
             <Button
                 android:id="@+id/button"
-                android:onClick="connect"
                 android:layout_width="211dp"
                 android:layout_height="81dp"
                 android:text="@string/connect"
-                tools:ignore="DuplicateIds,MissingConstraints,OnClick"
+                tools:ignore="DuplicateIds,MissingConstraints,OnClick,UsingOnClickInXml"
                 tools:layout_editor_absoluteX="75dp"
                 tools:layout_editor_absoluteY="311dp" />
 
@@ -106,6 +105,7 @@
                     android:id="@+id/seekBarRudder"
                     android:layout_width="300dp"
                     android:layout_height="57dp"
+                    android:progress="50"
                     tools:ignore="DuplicateIds,MissingConstraints"
                     tools:layout_editor_absoluteX="108dp"
                     tools:layout_editor_absoluteY="1035dp" />

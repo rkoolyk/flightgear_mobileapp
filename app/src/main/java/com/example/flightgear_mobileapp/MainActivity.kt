@@ -3,6 +3,7 @@ package com.example.flightgear_mobileapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.SeekBar
 
 class MainActivity : AppCompatActivity() {
@@ -10,11 +11,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val button : Button = findViewById(R.id.button)
+        button.setOnClickListener {connect()}
         updateJoystick()
         updateThrottle()
         updateRudder()
     }
-
 
     fun updateJoystick() {
         val joystick = findViewById<com.example.flightgear_mobileapp.Joystick>(R.id.joystick)
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun connect(view: View) {
+    fun connect() {
         val ip = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.ip_address).text.toString()
         val port = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.port).text.toString()
         vm.VM_connect(ip, port)

@@ -1,5 +1,6 @@
 package com.example.flightgear_mobileapp
 
+import android.os.StrictMode
 import java.io.OutputStream
 import java.net.Socket
 
@@ -16,18 +17,27 @@ class Model {
     fun connect(ip: String, port: String) {
         ip_addr = ip
         port_num = port
+        val portInt : Int = port.toInt()
+        println("IP IS: " + ip + " PORT IS: " + port)
         val thread = Thread(Runnable {
-            socket = Socket(ip,port.toInt())
-            outputStream = socket.getOutputStream()
+            try{
+                socket = Socket(ip,portInt)
+                println("GOT HERE")
+                outputStream = socket.getOutputStream()
+            }
+            catch (e : Exception) {
+                e.printStackTrace()
+            }
         })
         thread.start()
         thread.join()
-
     }
     fun setThrottle(throttle : Float) {
         throttle_val = throttle / 100
+        //println("THROTTLE: " + throttle_val)
         val thread = Thread(Runnable {
-            val string : String = "set /controls/flight/throttle "+throttle_val.toString()+"\r\n"
+            val string : String = "set /controls/engines/current-engine/throttle "+throttle_val.toString()+"\r\n"
+            println(string)
             outputStream.write(string.toByteArray());
             outputStream.flush();
         })
@@ -36,6 +46,7 @@ class Model {
     }
     fun setRudder(rudder : Float) {
         rudder_val = (rudder - 50) / 50
+        println("RUDDER: " + rudder_val)
         val thread = Thread(Runnable {
             val string : String = "set /controls/flight/rudder "+rudder_val.toString()+"\r\n"
             outputStream.write(string.toByteArray());
