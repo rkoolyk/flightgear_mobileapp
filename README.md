@@ -42,5 +42,5 @@ tichnut mitkadem 2 even derech 3
 * Control the airplane using the throttle, rudder, and joystick 
 
 **Additional Links:**
-* UML layout 
+* UML layout https://github.com/rkoolyk/flightgear_mobileapp/blob/master/UML_ED3.JPG
 * Video demo of app 
