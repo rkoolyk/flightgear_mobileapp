@@ -43,4 +43,4 @@ tichnut mitkadem 2 even derech 3
 
 **Additional Links:**
 * UML layout https://github.com/rkoolyk/flightgear_mobileapp/blob/master/UML_ED3.JPG
-* Video demo of app 
+* Video demo of app https://youtu.be/_J0iVvzUNxQ
